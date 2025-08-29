@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">English Tools</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="register_prompt">没有账号？立即注册</string>
+    <string name="back">返回上页</string>
+
+    <!-- 学习页面 -->
+    <string name="word_memory">单词记忆</string>
+    <string name="my_vocabulary">我的单词本</string>
+
+    <!-- 单词记忆页面 -->
+    <string name="show_chinese">显示中文</string>
+    <string name="hide_chinese">隐藏中文</string>
+    <string name="prev">上一个</string>
+    <string name="next">下一个</string>
+    <string name="bookmark">添加书签</string>
+    <string name="add_to_vocabulary">加单词本</string>
+
+    <!-- 我的单词本页面 -->
+    <string name="vocabulary_empty">您的单词本为空</string>
+    <string name="remove">移除</string>
+    <string name="input_hint">输入要翻译的文本</string>
+    <string name="translate">翻译</string>
+    <string name="translating">翻译中…</string>
+    <string name="network_error">网络错误，请重试</string>
+    <string name="translation_error">翻译失败，错误码：%1$s</string>
+
+    <string-array name="language_options">
+        <item>自动检测</item>
+        <item>英文 → 中文</item>
+        <item>中文 → 英文</item>
+    </string-array>
+</resources>

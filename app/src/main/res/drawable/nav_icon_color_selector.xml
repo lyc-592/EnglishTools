@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 活动状态 - 明亮的青蓝绿 -->
+    <item android:color="#5CE1E6" android:state_checked="true" />
+
+    <!-- 未活动状态 - 柔和的浅紫色 -->
+    <item android:color="#D7C8E6" />
+</selector>

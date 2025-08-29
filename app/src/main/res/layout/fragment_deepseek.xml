@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gradient"
+        tools:context=".ui.deepseek.DeepseekFragment">
+
+
+
+    <!-- 结果展示区域 - 完全透明背景 -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="350dp"
+        android:layout_height="371dp"
+        android:fillViewport="true"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25">
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:textIsSelectable="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:gravity="start"
+            android:padding="30dp"
+            android:scrollbars="vertical"
+            android:text="等待提问..."
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:lineSpacingExtra="6dp"/>
+        </ScrollView>
+
+    <!-- 输入区域 - 半透明背景 -->
+
+        <!-- 发送按钮 - 保持原有位置 -->
+        <EditText
+            android:id="@+id/etUserInput"
+            android:layout_width="318dp"
+            android:layout_height="97dp"
+            android:background="@drawable/transparent_rounded_bg"
+            android:gravity="top|start"
+            android:hint="请输入问题..."
+            android:inputType="textMultiLine|textCapSentences"
+            android:padding="16dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#B3FFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.773" />
+
+
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="169dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_gradient_btn_purple"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            android:text="发送"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.898" />
+
+        <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminateTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.95"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

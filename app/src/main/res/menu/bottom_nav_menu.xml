@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/studyFragment"
+        android:icon="@drawable/ic_study"
+        android:title="学习"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/youdaoFragment"
+        android:icon="@drawable/ic_youdao"
+        android:title="有道翻译"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/deepseekFragment"
+        android:icon="@drawable/ic_deepseek"
+        android:title="DeepSeek"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_profile"
+        android:title="我的"
+        app:showAsAction="ifRoom"/>
+
+</menu>

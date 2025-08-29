@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/auth_nav">
+
+    <!-- 认证流程子图 -->
+    <navigation
+        android:id="@+id/auth_nav"
+        app:startDestination="@id/loginFragment">
+
+        <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.lyc.englishtools.ui.auth.LoginFragment"
+            android:label="登录"
+            tools:layout="@layout/fragment_login">
+
+            <argument
+                android:name="prefilled_username"
+                app:argType="string"
+                android:defaultValue=""
+                tools:defaultValue="" />
+
+            <action
+                android:id="@+id/action_login_to_main_flow"
+                app:destination="@id/main_flow"
+                app:popUpTo="@id/auth_nav"
+                app:popUpToInclusive="true"/>
+
+            <action
+                android:id="@+id/action_login_to_register"
+                app:destination="@id/registerFragment"/>
+        </fragment>
+
+        <fragment
+            android:id="@+id/registerFragment"
+            android:name="com.lyc.englishtools.ui.auth.RegisterFragment"
+            android:label="注册"
+            tools:layout="@layout/fragment_register">
+
+            <action
+                android:id="@+id/action_register_to_login"
+                app:destination="@id/loginFragment">
+                <argument
+                    android:name="prefilled_username"
+                    app:argType="string"
+                    android:defaultValue="" />
+            </action>
+        </fragment>
+    </navigation>
+
+    <!-- 主功能子图 -->
+    <navigation
+        android:id="@+id/main_flow"
+        app:startDestination="@id/studyFragment">
+
+        <!-- 学习模块 -->
+        <fragment
+            android:id="@+id/studyFragment"
+            android:name="com.lyc.englishtools.ui.study.StudyFragment"
+            android:label="学习">
+            <action
+                android:id="@+id/action_studyFragment_to_wordMemoryFragment"
+                app:destination="@id/wordMemoryFragment" />
+            <action
+                android:id="@+id/action_studyFragment_to_myVocabularyFragment"
+                app:destination="@id/myVocabularyFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/wordMemoryFragment"
+            android:name="com.lyc.englishtools.ui.study.memory.WordMemoryFragment"
+            android:label="单词记忆">
+            <action
+                android:id="@+id/action_wordMemoryFragment_to_studyFragment"
+                app:destination="@id/studyFragment"
+                app:popUpTo="@id/studyFragment"
+                app:popUpToInclusive="false" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/myVocabularyFragment"
+            android:name="com.lyc.englishtools.ui.study.vocabulary.MyVocabularyFragment"
+            android:label="我的单词本">
+            <action
+                android:id="@+id/action_myVocabularyFragment_to_studyFragment"
+                app:destination="@id/studyFragment"
+                app:popUpTo="@id/studyFragment"
+                app:popUpToInclusive="false" />
+        </fragment>
+
+        <!-- 有道翻译模块 -->
+        <fragment
+            android:id="@+id/youdaoFragment"
+            android:name="com.lyc.englishtools.ui.youdao.YoudaoFragment"
+            android:label="有道"
+            tools:layout="@layout/fragment_youdao">
+
+            <!-- 导航到文本翻译 -->
+            <action
+                android:id="@+id/action_youdao_to_text"
+                app:destination="@id/textTranslationFragment"
+                app:popUpTo="@id/youdaoFragment" />
+
+            <!-- 导航到图片翻译 -->
+            <action
+                android:id="@+id/action_youdao_to_image"
+                app:destination="@id/imageTranslationFragment"
+                app:popUpTo="@id/youdaoFragment" />
+
+        </fragment>
+
+        <!-- 文本翻译 -->
+        <fragment
+            android:id="@+id/textTranslationFragment"
+            android:name="com.lyc.englishtools.ui.youdao.TextTranslationFragment"
+            android:label="文本翻译"
+            tools:layout="@layout/fragment_text_translation">
+
+            <action
+                android:id="@+id/action_text_translation_to_youdao"
+                app:destination="@id/youdaoFragment"
+                app:popUpTo="@id/youdaoFragment"
+                app:popUpToInclusive="false" />
+        </fragment>
+
+        <!-- 图片翻译 -->
+        <fragment
+            android:id="@+id/imageTranslationFragment"
+            android:name="com.lyc.englishtools.ui.youdao.ImageTranslationFragment"
+            android:label="图片翻译"
+            tools:layout="@layout/fragment_image_translation">
+
+            <action
+                android:id="@+id/action_image_translation_to_youdao"
+                app:destination="@id/youdaoFragment"
+                app:popUpTo="@id/youdaoFragment"
+                app:popUpToInclusive="false" />
+        </fragment>
+
+
+        <!-- DeepSeek -->
+        <fragment
+            android:id="@+id/deepseekFragment"
+            android:name="com.lyc.englishtools.ui.deepseek.DeepseekFragment"
+            android:label="DeepSeek"
+            tools:layout="@layout/fragment_deepseek"/>
+
+        <!-- 个人中心 -->
+        <fragment
+            android:id="@+id/profileFragment"
+            android:name="com.lyc.englishtools.ui.profile.ProfileFragment"
+            android:label="我的"
+            tools:layout="@layout/fragment_profile">
+
+            <!-- 全局退出登录Action -->
+            <action
+                android:id="@+id/action_global_logout"
+                app:destination="@id/auth_nav"
+                app:popUpTo="@id/main_nav"
+                app:popUpToInclusive="true"/>
+        </fragment>
+    </navigation>
+</navigation>
